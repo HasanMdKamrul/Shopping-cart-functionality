@@ -5,6 +5,9 @@ const getInputValue = (id)=> parseInt(document.getElementById(id).value);
 // ** setInputValue
 
 const setInputValue = (id,newValue)=> document.getElementById(id).value = newValue;
+// ** getTextValue
+
+const getTextValue = (id)=> parseInt(document.getElementById(id).innerText);
 
 // ** setTextValue
 
@@ -33,4 +36,23 @@ const updateNumber = (isIncrease,id)=>{
 const updatePrice = (totalInputValue,productPrice,id)=>{
     const totalPrice = totalInputValue * productPrice;
     setTextValue(id,totalPrice);
+};
+
+const subSection = ()=>{
+    const phoneTotal = getTextValue('phone-price-total');
+    const caseTotal = getTextValue('case-total-price');
+
+    const subTotal = phoneTotal + caseTotal;
+
+    setTextValue('sub-total',subTotal);
+
+    const taxTotalString = (subTotal * 10/100).toFixed(2);
+
+    const taxTotal = parseFloat(taxTotalString);
+
+    setTextValue('tax',taxTotal);
+
+    const finalTotal = taxTotal + subTotal;
+
+    setTextValue('total',finalTotal);
 };
