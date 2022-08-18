@@ -1,15 +1,18 @@
 
 // ** Case button  clicked 
 
-
 document.getElementById('btn-case-plus').addEventListener('click', function(){
 
-    totalPrice(true);
+    const productPrice = 59;
+    const totalCaseNumber = updateNumber(true,'case-number-input');
+    updatePrice(totalCaseNumber,productPrice,'case-total-price');
 
 })
 
 document.getElementById('button-case-minus').addEventListener('click', function(){
 
-    totalPrice();
+    const productPrice = 59;
+    const totalCaseNumber = updateNumber(false,'case-number-input');
+    updatePrice(totalCaseNumber,productPrice,'case-total-price');
 
 })
